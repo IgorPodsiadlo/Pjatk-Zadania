@@ -1,31 +1,36 @@
+
 /*
  * The very first program you should write in any new programming language.
  */
+
+
 #include <iostream>
 #include <string>
 auto ask_user_for_integer(std::string) -> int;
-float sprawdzenie (float a,float b);
-auto main() -> int
+int sprawdzenie(int a, int b);
+auto main(int argc, char* argv[]) -> int
 {
-int i;
-for (i=1;i<=5; i++){
-float a = ask_user_for_integer ("\n a = ");
-float b = ask_user_for_integer ("\n b = ");
-sprawdzenie(a,b);
+    auto const a = std::stoi(argv[1]);
+    int i;
+    for (i = 2; i < argc; i++) {
+        sprawdzenie(a, std::stoi(argv[i]));
+    }
 }
-return 0;
-}
-float sprawdzenie (float a,float b)
+int sprawdzenie(int a, int b)
 {
-    if (a>b) std::cout <<a<< ">" <<b;
-      else if (b>a) std::cout <<a<< "<" <<b;
-        else if (b==a) std::cout <<a<< "=" <<b;
+    if (a > b)
+        std::cout << a << ">" << b << "\n";
+    else if (b > a)
+        std::cout << a << "<" << b << "\n";
+    else if (b == a)
+        std::cout << a << "=" << b << "\n";
 
     return 0;
 }
-auto ask_user_for_integer(std::string prompt) -> int {
-     std::cout << prompt << " int:";
-     auto n = std::string{};
-     std::getline(std::cin, n);
-     return std::stoi(n);
+auto ask_user_for_integer(std::string prompt) -> int
+{
+    std::cout << prompt << " int:";
+    auto n = std::string{};
+    std::getline(std::cin, n);
+    return std::stoi(n);
 }

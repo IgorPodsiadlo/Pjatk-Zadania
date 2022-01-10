@@ -1,18 +1,16 @@
 #include <iostream>
 
 auto is_divisible(int, int) -> bool;
-auto is_even(int, int) -> bool;
+auto is_even(int) -> bool;
 
 
 auto main() -> int
 {
-    int liczba, dzielnik;
+    int liczba;
     std::cout << "Podaj liczbe ";
     std::cin >> liczba;
-    std::cout << "Podaj dzielnik ";
-    std::cin >> dzielnik;
 
-    std::cout << is_even(liczba, dzielnik);
+    std::cout << is_even(liczba);
 
 
     return 0;
@@ -26,9 +24,9 @@ auto is_divisible(int x, int y) -> bool
 }
 
 
-auto is_even(int a, int y) -> bool
+auto is_even(int a) -> bool
 {
-    if (is_divisible(a, y) == 1)
+    if (is_divisible(a, 2) == 1)
         return true;
 
     else
